@@ -51,6 +51,7 @@ to quickly create a Cobra application.`,
 				fmt.Printf("リクエストの作成に失敗しました: %v", err)
 			}
 
+			req.Header.Add("X-My-Client", "Go-Learn")
 			res, err := client.Do(req)
 			if err != nil {
 				fmt.Printf("リクエストの作成に失敗しました: %v", err)
@@ -59,6 +60,7 @@ to quickly create a Cobra application.`,
 			if res.StatusCode != http.StatusOK {
 				fmt.Printf("APIからエラーステータスが返されました: %s", res.Status)
 			}
+
 			// TechTrainのテストの挙動を鑑みてコメントアウト
 			// fmt.Println(res.Header.Get("Content-Type"))
 
